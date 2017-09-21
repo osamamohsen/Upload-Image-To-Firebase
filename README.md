@@ -133,6 +133,7 @@
     }
     
 #### Upload image To Firebase
+
    private void uploadImage() {  
         if(filePath != null){
             final ProgressDialog progress = new ProgressDialog(this);
