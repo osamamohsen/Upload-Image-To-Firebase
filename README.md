@@ -147,7 +147,7 @@
                     Toast.makeText(MainActivity.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
                     String imageUrl = taskSnapshot.getDownloadUrl().toString(); <!-- Fetch url image -->
                     Picasso.with(getBaseContext()).load(imageUrl).into(imgFirebase); 
-                    <!-- use picasso to fetch url and display image -->
+                    /* use picasso to fetch url and display image */
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
