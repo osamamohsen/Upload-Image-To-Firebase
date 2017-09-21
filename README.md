@@ -96,8 +96,8 @@
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
 
-    //Firebase
 
+#### Firebase
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -113,7 +113,7 @@
         imgFirebase = (ImageView) findViewById(R.id.imgFirebase);
 
 
-        //Firebase init
+#### Firebase INIT
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
@@ -132,7 +132,7 @@
         });
     }
     
-// upload image To Firebase
+#### Upload image To Firebase
    private void uploadImage() {  
         if(filePath != null){
             final ProgressDialog progress = new ProgressDialog(this);
@@ -145,8 +145,9 @@
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     progress.dismiss();
                     Toast.makeText(MainActivity.this, "Uploaded successfully", Toast.LENGTH_SHORT).show();
-                    String imageUrl = taskSnapshot.getDownloadUrl().toString(); // fetch url image
-                    Picasso.with(getBaseContext()).load(imageUrl).into(imgFirebase);// use piccasso to show image which uploaded
+                    String imageUrl = taskSnapshot.getDownloadUrl().toString(); <!-- Fetch url image -->
+                    Picasso.with(getBaseContext()).load(imageUrl).into(imgFirebase); 
+                    <!-- use picasso to fetch url and display image -->
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -164,7 +165,7 @@
         }
     }
 
-// fetch image from gallery
+#### Fetch image from gallery
     private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -172,7 +173,7 @@
         startActivityForResult(intent.createChooser(intent,"Select Picture"),PICK_IMAGE_REQUEST);
     }
 
-// on select image
+#### on select image
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
