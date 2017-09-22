@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imgView);
         imgFirebase = (ImageView) findViewById(R.id.imgFirebase);
 
-
         //Firebase init
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -93,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progres_time = (100*0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                    double progres_time = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
                     progress.setMessage("Uploaded "+(int)progres_time+" %");
                 }
             });
