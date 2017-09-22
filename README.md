@@ -159,7 +159,7 @@
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progres_time = (100*0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                    double progres_time = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
                     progress.setMessage("Uploaded "+(int)progres_time+" %");
                 }
             });
